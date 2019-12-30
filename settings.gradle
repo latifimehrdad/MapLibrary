@@ -1,0 +1,2 @@
+include ':app', ':ml_map_functions'
+rootProject.name='MyLibrary'
