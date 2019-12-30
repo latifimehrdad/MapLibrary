@@ -31,7 +31,7 @@ public class MehrdadLatifiMap {
 
 
 
-    public void DrawPolylines(
+    public static void MlMap_DrawPolylines(
             GoogleMap googleMap,
             List<LatLng> latLngList,
             int StrokeWidth,
@@ -43,7 +43,7 @@ public class MehrdadLatifiMap {
     }//_____________________________________________________________________________________________ End DrawPolylines
 
 
-    private void stylePolyline(Polyline polyline, int StrokeWidth, int StrokeColor) {//_____________ Start stylePolyline
+    private static void stylePolyline(Polyline polyline, int StrokeWidth, int StrokeColor) {//_____________ Start stylePolyline
         polyline.setStartCap(new RoundCap());
         polyline.setEndCap(new RoundCap());
         polyline.setWidth(StrokeWidth);
@@ -53,7 +53,7 @@ public class MehrdadLatifiMap {
     }//_____________________________________________________________________________________________ End stylePolyline
 
 
-    public void DrawPolygon(
+    public static void MlMap_DrawPolygon(
             GoogleMap googleMap,
             List<LatLng> latLngList,
             int StrokeWidth,
@@ -67,7 +67,7 @@ public class MehrdadLatifiMap {
 
 
 
-    private void stylePolygon(
+    private static void stylePolygon(
             Polygon polygon,
             boolean Pattern,
             int StrokeWidth,
@@ -91,7 +91,7 @@ public class MehrdadLatifiMap {
 
 
 
-    public void DrawCircle(
+    public static void MlMap_DrawCircle(
             GoogleMap googleMap,
             LatLng latLng,
             double radius,
@@ -108,7 +108,7 @@ public class MehrdadLatifiMap {
 
 
 
-    public float[] MeasureDistance(LatLng Old, LatLng New) {//______________________________________ Start MeasureDistance
+    public static float[] MlMap_MeasureDistance(LatLng Old, LatLng New) {//______________________________________ Start MeasureDistance
         float[] results = new float[1];
         Location.distanceBetween(Old.latitude, Old.longitude,
                 New.latitude, New.longitude, results);
@@ -116,7 +116,7 @@ public class MehrdadLatifiMap {
     }//_____________________________________________________________________________________________ End MeasureDistance
 
 
-    public Marker AddMarker(
+    public static Marker MlMap_AddMarker(
             GoogleMap googleMap,
             LatLng latLng,
             String title,
@@ -131,13 +131,13 @@ public class MehrdadLatifiMap {
     }//_____________________________________________________________________________________________ End AddMarker
 
 
-    public Boolean isInside(LatLng point, List<LatLng> latLngs) {//_________________________________ Start isInside
+    public static Boolean MlMap_isInside(LatLng point, List<LatLng> latLngs) {//_________________________________ Start isInside
         return PolyUtil.containsLocation(point, latLngs, true);
     }//_____________________________________________________________________________________________ End isInside
 
 
 
-    public ArrayList<LatLng> getCirclePoints(LatLng centre, double radius) {//______________________ Start getCirclePoints
+    public static ArrayList<LatLng> MlMap_getCirclePoints(LatLng centre, double radius) {//_________ Start getCirclePoints
         ArrayList<LatLng> points = new ArrayList<LatLng>();
 
         double EARTH_RADIUS = 6378100.0;
@@ -156,7 +156,7 @@ public class MehrdadLatifiMap {
     }//_____________________________________________________________________________________________ End getCirclePoints
 
 
-    public void AutoZoom(GoogleMap googleMap,List<LatLng> latLngs) {//______________________________ Start AutoZoom
+    public static void MlMap_AutoZoom(GoogleMap googleMap,List<LatLng> latLngs) {//_________________ Start AutoZoom
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         for (LatLng latLng : latLngs) {
             builder.include(latLng);
